@@ -11,7 +11,7 @@ test.each(validCpfs)("Deve validar o cpf", function (validCpf) {
 	expect(cpf).toBeDefined();
 });
 
-test("Deve tentar validar o cpf com mais de 14 caracteres", function () {
+fit("Deve tentar validar o cpf com mais de 14 caracteres", function () {
 	expect(() => new Cpf("147.085.437-600")).toThrow(new Error("Cpf inválido"));
 });
 
