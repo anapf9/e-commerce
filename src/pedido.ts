@@ -1,9 +1,10 @@
 import Cupom from "./cupom";
 import Cpf from "./cpf";
 import Item from "./item";
-import ItemDoPedido from "./item-da-pedido";
+import ItemDoPedido from "./item-do-pedido";
 
 export default class Ordem {
+	distancia: number = 1000;
 	cpf: Cpf;
 	itensDoPedido: ItemDoPedido[];
 	cupom?: Cupom;
@@ -25,6 +26,12 @@ export default class Ordem {
 		this.itensDoPedido.push(novoItem);
 	}
 
+	calculaFrete(item: Item) {
+		if (item.preco < 10) throw new Error("O valor minimo do frete é R$ 10,00");
+		const volume = item.calculaVolume()
+		const densidade = item.calculaDensidade() / 1000
+		return this.distancia * volume * densidade
+	}
 
 	adicionaCupom (cupom: Cupom) {
 		this.cupom = cupom;
