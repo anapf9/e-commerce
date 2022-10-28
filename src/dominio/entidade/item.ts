@@ -1,26 +1,25 @@
 export default class Item {
-	altura: number = 0;
+	/* altura: number = 0;
 	lagura: number = 0;
 	peso: number = 0;
-	profundidade: number = 0;
+	profundidade: number = 0; */
 	
 	constructor (
 		readonly idItem: number, 
 		readonly descricao: string, 
 		readonly preco: number,  
-		lagura: number, 
+		/* lagura: number, 
 		profundidade: number,
 		peso: number,
-		altura: number
+		altura: number */
 		) {
-			this.altura = altura
+			/*this.altura = altura
 			this.lagura = lagura
 			this.profundidade = profundidade
 			this.peso = peso
-			this.varolesFixos()
-		}
+			this.varolesFixos() */	}
 
-	varolesFixos(): void {
+	/* valoresFixos(): void {
 		if (this.descricao === 'Camera') {
 			this.altura = 20,
 			this.lagura = 15,
@@ -39,7 +38,7 @@ export default class Item {
 			this.profundidade = 50,
 			this.peso = 40,
 		}
-	}
+	} 
 
 	calculaVolume() {
 		return this.altura * this.lagura * this.profundidade
@@ -47,7 +46,7 @@ export default class Item {
 
 	calculaDensidade() {
 		return this.peso / this.calculaVolume()
-	}
+	} */
 
 	// pelo idItem consigo verificar no banco as informações de dimensão do produto
 }
