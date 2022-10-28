@@ -3,7 +3,7 @@ import Cpf from "./cpf";
 import Item from "./item";
 import ItemDoPedido from "./item-do-pedido";
 
-export default class Ordem {
+export default class Pedido {
 	distancia: number = 1000;
 	cpf: Cpf;
 	itensDoPedido: ItemDoPedido[];

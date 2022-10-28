@@ -21,8 +21,6 @@ export default class Cpf {
 	}
 
 	private isValidLength (cpf: string) {
-		console.log('cpf.length', cpf.length);
-		
 		return cpf.length === 11;
 	}
 
