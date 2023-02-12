@@ -1,6 +1,6 @@
-import Cupom from "../src/cupom";
-import Item from "../src/item";
-import Pedido from "../src/pedido";
+import Cupom from "../src/dominio/entidade/cupom";
+import Item from "../src/dominio/entidade/item";
+import Pedido from "../src/dominio/entidade/pedido";
 
 it("Não deve criar um pedido com CPF inválido", () => {
 	expect(() => new Pedido("111.111.111-11")).toThrow(new Error("Cpf inválido"));
@@ -27,7 +27,7 @@ it("Deve criar um pedido com 3 itens com cupom de desconto", () => {
 	order.adicionaItem(new Item(1, "Guitarra", 1000), 1);
 	order.adicionaItem(new Item(2, "Amplificador", 5000), 1);
 	order.adicionaItem(new Item(3, "Cabo", 30), 3);
-	order.adicionaCupom(new Cupom("VALE20", 20, data));
+	order.adicionaCupom(new Cupom("VALE20", 20));
 	const total = order.obtemTotal();
 	expect(total).toBe(4872);
 });

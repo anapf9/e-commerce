@@ -1,4 +1,4 @@
-import Cupom from '../src/cupom';
+import Cupom from '../src/dominio/entidade/cupom';
 
 it("Não deve aplicar cupom de desconto expirado", () => {
 	const dataExpirada = new Date(2019, 0, 26)

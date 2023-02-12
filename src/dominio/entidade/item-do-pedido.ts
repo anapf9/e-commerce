@@ -1,7 +1,7 @@
 export default class ItemDoPedido {
 
 	constructor (readonly idItem: number, readonly preco: number, readonly quantidade: number) {
-		this.verificaValorNegativo()
+		
 	}
 
 	obterTotal () {

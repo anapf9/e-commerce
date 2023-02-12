@@ -1,6 +1,6 @@
-import FinalizarCompra from "../../aplicacao/caso-de-uso/finalizar-compra";
-import ObtemPedidoPorCpf from "../../aplicacao/caso-de-uso/obtem-pedido-por-cpf";
-import VisualizaCarrinho from "../../aplicacao/caso-de-uso/visualizar-carrinho";
+import FinalizarCompra from "../../aplicacao/usecase/finalizar-compra";
+import ObtemPedidoPorCpf from "../../aplicacao/usecase/obtem-pedido-por-cpf";
+import VisualizaCarrinho from "../../aplicacao/usecase/visualizar-carrinho";
 import HttpServerInterface from "../http/HttpServerInterface";
 
 export default class PedidoController {
@@ -16,7 +16,7 @@ export default class PedidoController {
 			return { total };
 		});
 		
-		httpServer.on("post", "/finliza-compra", async function (params: any, body: any) {
+		httpServer.on("post", "/finaliza-compra", async function (params: any, body: any) {
 			await finlizaCompra.execute(body)
 		});
 		

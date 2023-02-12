@@ -4,7 +4,7 @@ import Item from "./item";
 import ItemDoPedido from "./item-do-pedido";
 
 export default class Pedido {
-	distancia: number = 1000;
+	// distancia: number = 1000;
 	cpf: Cpf;
 	itensDoPedido: ItemDoPedido[];
 	cupom?: Cupom;
@@ -26,12 +26,12 @@ export default class Pedido {
 		this.itensDoPedido.push(novoItem);
 	}
 
-	calculaFrete(item: Item) {
+	/* calculaFrete(item: Item) {
 		if (item.preco < 10) throw new Error("O valor minimo do frete é R$ 10,00");
 		const volume = item.calculaVolume()
 		const densidade = item.calculaDensidade() / 1000
 		return this.distancia * volume * densidade
-	}
+	} */
 
 	adicionaCupom (cupom: Cupom) {
 		this.cupom = cupom;
