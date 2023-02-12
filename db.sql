@@ -1,3 +1,9 @@
+CREATE DATABASE app
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
 CREATE TABLE item(
 	id_item serial primary key,
 	descricao text,
