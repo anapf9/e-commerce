@@ -18,7 +18,6 @@ export default class VisualizaCarrinho {
 		const pedido = new Pedido(input.cpf);
 		
 		for (const itemDoPedido of input.itensDoPedido) {
-			console.log('input.itensDoPedido', itemDoPedido);
 			const item = await this.itemRepository.obtemItem(itemDoPedido.idItem);
 			pedido.adicionaItem(item, itemDoPedido.quantidade);
 		}

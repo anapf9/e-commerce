@@ -30,7 +30,7 @@ test("Deve simular um pedido COM desconto", async function () {
 	itemRepository.salvar(new Item(2, "Amplificador", 5000));
 	itemRepository.salvar(new Item(3, "Cabo", 30));
 	const cupomRepository = new CupomRepositoryMemory()
-	cupomRepository.salvar(new Cupom("VALE20", 20))
+	cupomRepository.salvar(new Cupom("VALE20", 20, new Date("2024-02-12T01:31:04.522Z")))
 	const preview = new VisualizaCarrinho(itemRepository, cupomRepository);
 	const input = {
 		cpf: "317.153.361-86",

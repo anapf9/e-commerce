@@ -27,13 +27,11 @@ it("Deve criar um pedido com 3 itens com cupom de desconto", () => {
 	order.adicionaItem(new Item(1, "Guitarra", 1000), 1);
 	order.adicionaItem(new Item(2, "Amplificador", 5000), 1);
 	order.adicionaItem(new Item(3, "Cabo", 30), 3);
-	order.adicionaCupom(new Cupom("VALE20", 20));
+	order.adicionaCupom(new Cupom("VALE20", 20, new Date("2024-02-12T01:31:04.522Z")));
 	const total = order.obtemTotal();
 	expect(total).toBe(4872);
 });
 
-fit("Ao fazer um pedido, a quantidade de um item não pode ser negativa", () => {
-	const order = new Pedido("841.456.270-16");
-	order.adicionaItem(new Item(1, "Guitarra", 1000), -1);
-	expect(() => order).toThrow(new Error("A quantidade de items não pode ser negativa"));
+it("Ao fazer um pedido, a quantidade de um item não pode ser negativa", () => {
+	expect(() => new Pedido("841.456.270-16").adicionaItem(new Item(1, "Guitarra", 1000), -1)).toThrow(new Error("A quantidade de items não pode ser negativa"));
 });

@@ -3,18 +3,17 @@ export default class Cupom {
 	constructor (
 		readonly codigo: string, 
 		readonly porcentagem: number, 
-		// readonly dataExpiracao: Date
+		readonly dataExpiracao?: Date
 		) {
-		// if (!this.valido()) throw new Error("Cupom Expirado");
 	}
 
-	public calculaDesconto (total: number): number {
+	public calculaDesconto (total: number, dataPedido: Date): number {
+		if (!this.valido(dataPedido)) throw new Error("Cupom Expirado");
 		return (total * this.porcentagem)/100;
 	}
 
-	/* private valido() {
-		// Só é valido se a data do cupom for maior ou igual a data atual
-		const dataAtual = new Date()
-		return this.dataExpiracao >= dataAtual
-	} */
+	private valido(data: Date): boolean {
+		// Só é valido se a data do cupom for maior ou igual a data do pedido
+		return this.dataExpiracao ? this.dataExpiracao >= data : false
+	} 
 }

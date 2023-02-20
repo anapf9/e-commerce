@@ -9,7 +9,7 @@ export default class Pedido {
 	itensDoPedido: ItemDoPedido[];
 	cupom?: Cupom;
 
-	constructor (cpf: string) {
+	constructor (cpf: string, readonly data: Date = new Date) {
 		this.cpf = new Cpf(cpf);
 		this.itensDoPedido = [];
 	}
@@ -43,7 +43,7 @@ export default class Pedido {
 			return valorCumulado;
 		}, 0);
 		if (this.cupom) {
-			total -= this.cupom.calculaDesconto(total);
+			total -= this.cupom.calculaDesconto(total, this.data);
 		}
 		return total;
 	}

@@ -2,6 +2,7 @@
 import FinalizarCompra from "./aplicacao/usecase/finalizar-compra";
 import ObtemPedidoPorCpf from "./aplicacao/usecase/obtem-pedido-por-cpf";
 import VisualizaCarrinho from "./aplicacao/usecase/visualizar-carrinho";
+import Cupom from "./dominio/entidade/cupom";
 import OrderController from "./infra/controller/pedido-controller";
 import PgPromiseAdapter from "./infra/database/PgPromiseAdapter";
 import ExpressAdapter from "./infra/http/ExpressAdapter";
@@ -18,6 +19,7 @@ const connection = new PgPromiseAdapter();
 const itemRepository = new ItemRepositoryDatabase(connection);
 const orderRepository = new OrderRepositoryMemory();
 const cupomRepository = new CupomRepositoryMemory()
+cupomRepository.salvar(new Cupom("VALE20", 20, new Date("2023-02-12T01:31:04.522Z")))
 const preview = new VisualizaCarrinho(itemRepository, cupomRepository);
 const checkout = new FinalizarCompra(itemRepository, orderRepository, cupomRepository);
 const getOrderByCpf = new ObtemPedidoPorCpf(orderRepository);

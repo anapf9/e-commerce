@@ -7,6 +7,7 @@ type Input = {
 	cpf: string,
 	pedidoItems: { idItem: number, quantidade: number }[]
 	cupom?: string
+	data?: Date;
 }
 
 export default class FinalizarCompra {
@@ -17,8 +18,8 @@ export default class FinalizarCompra {
 		readonly cupomRepository: CupomRepository
 		) {}
 
-	async execute ({cpf, pedidoItems,cupom}: Input): Promise<void> {
-		const pedido = new Pedido(cpf);
+	async execute ({cpf, pedidoItems, cupom, data}: Input): Promise<void> {
+		const pedido = new Pedido(cpf, data);
 		for (const pedidoItem of pedidoItems) {
 			const item = await this.itemRepository.obtemItem(pedidoItem.idItem);
 			pedido.adicionaItem(item, pedidoItem.quantidade);
